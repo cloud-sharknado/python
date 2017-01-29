@@ -37,6 +37,10 @@ def decorator(declared_decorator):
 
 		
 if __name__=='__main__':
+	'''
+	Do some testing ...
+	'''
+
 	@decorator
 	def suppress_errors(func, args, kwargs, log_func=None):
 		try:

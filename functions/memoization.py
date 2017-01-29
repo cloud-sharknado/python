@@ -6,6 +6,8 @@ def memoize(func):
 	'''
 	Cach the results of the function so it doesn't need to be called
 	again, if the same arguments are provided a second time.
+
+	CAUTION: deterministic functions ONLY!
 	'''
 
 	cache = {}
@@ -23,16 +25,19 @@ def memoize(func):
 
 	return wrapper
 
-@memoize
-def multiply(x, y):
-	return x * y
-
-@memoize
-def add(x, y):
-	return x + y
-
-
 if __name__=='__main__':
+	'''
+	Do some testing ...
+	'''
+
+	@memoize
+	def multiply(x, y):
+		return x * y
+
+	@memoize
+	def add(x, y):
+		return x + y
+
 	print(multiply(1, 2))
 	print(multiply(3, 5))
 	print(multiply(1, 2))
