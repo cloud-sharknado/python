@@ -1,11 +1,12 @@
 #!/usr/bin/python
 import PIL.Image, PIL.ExifTags, glob, os, time, logging, sys
 
-def deco(cls):
-	cls.set_properties()
+def propertyset(cls):
+	if hasattr(cls, 'set_properties'):
+		cls.set_properties()
 	return cls
 
-@deco
+@propertyset
 class Photo(object):
 	'''
 	'''
@@ -200,4 +201,4 @@ def main():
 		mapping[item.basename] = item.size
 		item.move_file(os.path.join(new_dir, year, month, day), dryrun=dryrun, rename=False)
 
-if __name__=='__main__': main()
+# if __name__=='__main__': main()
